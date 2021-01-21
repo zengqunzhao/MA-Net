@@ -17,7 +17,25 @@ for Facial Expression Recognition in the Wild”*, This work is under submission
 
 ## Training
 
-- Step 1: prepare [RAF-DB](http://www.whdeng.cn/raf/model1.html) dataset.
+- Step 1: download basic emotions dataset of [RAF-DB](http://www.whdeng.cn/RAF/model1.html#dataset), and make sure it have the structure like following:
+ 
+```
+./RAF-DB/
+         train/
+               0/
+                 train_09748.jpg
+                 ...
+                 train_12271.jpg
+               1/
+               ...
+               6/
+         test/
+              0/
+              ...
+              6/
+
+[Note] 0: Neutral; 1: Happiness; 2: Sadness; 3: Surprise; 4: Fear; 5: Disgust; 6: Anger
+```
 
 - Step 2: download pre-trained model from
    [Google Drive](https://drive.google.com/file/d/1tro_RCovLKNACt4MKYp3dmIvvxiOC2pi/view?usp=sharing),
