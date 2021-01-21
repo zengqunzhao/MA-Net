@@ -1,6 +1,6 @@
 # MA-Net
 
-PyTorch implement of our paper *“Learning Deep Global Multi-scale and Local Attention Features 
+PyTorch implementation of the paper *“Learning Deep Global Multi-scale and Local Attention Features 
 for Facial Expression Recognition in the Wild”*, This work is under submission.
 
 ## Requirements
