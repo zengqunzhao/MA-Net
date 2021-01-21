@@ -41,6 +41,6 @@ for Facial Expression Recognition in the Wild”*, This work is under submission
    [Google Drive](https://drive.google.com/file/d/1tro_RCovLKNACt4MKYp3dmIvvxiOC2pi/view?usp=sharing),
     and put it into ***./checkpoint***.
     
-- Step 3: change the ***project_path*** and ***data_path***  to your path in *main.py*
+- Step 3: change the ***project_path*** and ***data_path*** in *main.py* to your path 
 
 - Step 4: run ```python main.py ```
