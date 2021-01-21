@@ -17,7 +17,7 @@ for Facial Expression Recognition in the Wild”*, This work is under submission
 
 ## Training
 
-- Step 1: download basic emotions dataset of [RAF-DB](http://www.whdeng.cn/RAF/model1.html#dataset), and make sure it have the structure like following:
+- Step 1: download basic emotions dataset of [RAF-DB](http://www.whdeng.cn/raf/model1.html), and make sure it have the structure like following:
  
 ```
 ./RAF-DB/
