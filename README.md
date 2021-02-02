@@ -4,9 +4,9 @@ PyTorch implementation of the paper *“Learning Deep Global Multi-scale and Loc
 for Facial Expression Recognition in the Wild”*, This work is under submission.
 
 ## Requirements
-- Python 3.6
-- PyTorch 1.2
-- torchvision 0.4.0
+- Python $\geq$3.6
+- PyTorch $\geq$1.2
+- torchvision $\geq$0.4.0
 - numpy
 - matplotlib
 - datetime
