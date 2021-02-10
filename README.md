@@ -1,7 +1,7 @@
 # MA-Net
 
 PyTorch implementation of the paper *“Learning Deep Global Multi-scale and Local Attention Features 
-for Facial Expression Recognition in the Wild”*, This work is under submission.
+for Facial Expression Recognition in the Wild”*, This work is under peer review.
 
 ## Requirements
 - Python $\geq$3.6
