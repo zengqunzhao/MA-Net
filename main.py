@@ -18,14 +18,13 @@ from model.manet import manet
 
 now = datetime.datetime.now()
 time_str = now.strftime("[%m-%d]-[%H-%M]-")
-project_path = '/home/zhaozengqun/project/MA-Net/'
 data_path = '/home/zhaozengqun/datasets_static/RAFDB_Face/'
 checkpoint_path = ''
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--data', type=str, default=data_path)
-parser.add_argument('--checkpoint_path', type=str, default=project_path+'checkpoint/' + time_str + 'model.pth')
-parser.add_argument('--best_checkpoint_path', type=str, default=project_path+'checkpoint/'+time_str+'model_best.pth')
+parser.add_argument('--checkpoint_path', type=str, default='./checkpoint/' + time_str + 'model.pth')
+parser.add_argument('--best_checkpoint_path', type=str, default='./checkpoint/'+time_str+'model_best.pth')
 parser.add_argument('-j', '--workers', default=4, type=int, metavar='N', help='number of data loading workers')
 parser.add_argument('--epochs', default=100, type=int, metavar='N', help='number of total epochs to run')
 parser.add_argument('--start-epoch', default=0, type=int, metavar='N', help='manual epoch number (useful on restarts)')
@@ -45,13 +44,12 @@ print('beta', args.beta)
 def main():
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
     best_acc = 0
-
     print('Training time: ' + now.strftime("%m-%d %H:%M"))
 
     # create model
     model = manet()
     model = torch.nn.DataParallel(model).cuda()
-    checkpoint = torch.load(project_path + '/checkpoint/Pretrained_on_MSCeleb.pth.tar')
+    checkpoint = torch.load('./checkpoint/Pretrained_on_MSCeleb.pth.tar')
     pre_trained_dict = checkpoint['state_dict']
     model.load_state_dict(pre_trained_dict)
     model.module.fc_1 = torch.nn.Linear(512, 7).cuda()
@@ -111,7 +109,7 @@ def main():
         start_time = time.time()
         current_learning_rate = optimizer.state_dict()['param_groups'][0]['lr']
         print('Current learning rate: ', current_learning_rate)
-        txt_name = project_path+'log/' + time_str + 'log.txt'
+        txt_name = './log/' + time_str + 'log.txt'
         with open(txt_name, 'a') as f:
             f.write('Current learning rate: ' + str(current_learning_rate) + '\n')
 
@@ -125,14 +123,14 @@ def main():
 
         recorder.update(epoch, train_los, train_acc, val_los, val_acc)
         curve_name = time_str + 'cnn.png'
-        recorder.plot_curve(os.path.join(project_path+'log/', curve_name))
+        recorder.plot_curve(os.path.join('./log/', curve_name))
 
         # remember best acc and save checkpoint
         is_best = val_acc > best_acc
         best_acc = max(val_acc, best_acc)
 
         print('Current best accuracy: ', best_acc.item())
-        txt_name = project_path+'log/' + time_str + 'log.txt'
+        txt_name = './log/' + time_str + 'log.txt'
         with open(txt_name, 'a') as f:
             f.write('Current best accuracy: ' + str(best_acc.item()) + '\n')
 
@@ -144,7 +142,7 @@ def main():
         end_time = time.time()
         epoch_time = end_time - start_time
         print("An Epoch Time: ", epoch_time)
-        txt_name = project_path+'log/' + time_str + 'log.txt'
+        txt_name = './log/' + time_str + 'log.txt'
         with open(txt_name, 'a') as f:
             f.write(str(epoch_time) + '\n')
 
@@ -215,7 +213,7 @@ def validate(val_loader, model, criterion, args):
                 progress.display(i)
 
         print(' **** Accuracy {top1.avg:.3f} *** '.format(top1=top1))
-        with open(project_path+'log/' + time_str + 'log.txt', 'a') as f:
+        with open('./log/' + time_str + 'log.txt', 'a') as f:
             f.write(' * Accuracy {top1.avg:.3f}'.format(top1=top1) + '\n')
     return top1.avg, losses.avg
 
@@ -261,7 +259,7 @@ class ProgressMeter(object):
         entries += [str(meter) for meter in self.meters]
         print_txt = '\t'.join(entries)
         print(print_txt)
-        txt_name = project_path+'log/' + time_str + 'log.txt'
+        txt_name = './log/' + time_str + 'log.txt'
         with open(txt_name, 'a') as f:
             f.write(print_txt + '\n')
 
