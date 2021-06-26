@@ -1,7 +1,7 @@
 # MA-Net
 
-PyTorch implementation of the paper *“Learning Deep Global Multi-scale and Local Attention Features 
-for Facial Expression Recognition in the Wild”*, IEEE Transactions on Image Processing.
+*Zengqun Zhao, Qingshan Liu, Shanmin Wang. "[Learning Deep Global Multi-scale and Local Attention Features 
+for Facial Expression Recognition in the Wild]()". TIP 2021*
 
 ## Requirements
 - Python $\geq$3.6
