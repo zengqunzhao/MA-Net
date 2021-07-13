@@ -4,16 +4,9 @@
 for Facial Expression Recognition in the Wild](https://doi.org/10.1109/TIP.2021.3093397)". IEEE Transactions on Image Processing.*
 
 ## Requirements
-- Python $\geq$3.6
-- PyTorch $\geq$1.2
-- torchvision $\geq$0.4.0
-- numpy
-- matplotlib
-- datetime
-- shutil
-- time
-- argparse
-- os
+- Python >= 3.6
+- PyTorch >= 1.2
+- torchvision >= 0.4.0
 
 ## Training
 
@@ -44,3 +37,7 @@ for Facial Expression Recognition in the Wild](https://doi.org/10.1109/TIP.2021.
 - Step 3: change ***data_path*** in *main.py* to your path 
 
 - Step 4: run ```python main.py ```
+
+
+## Note
+The samples' number of CAER-S dataset employed in our work should be: all (69,982 samples), training set (48,995 samples), and test set (20,987 samples). We apologize for the typos in our paper.
