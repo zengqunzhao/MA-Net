@@ -38,6 +38,19 @@ for Facial Expression Recognition in the Wild](https://doi.org/10.1109/TIP.2021.
 
 - Step 4: run ```python main.py ```
 
+## Citation
+
+```
+@article{zhao2021learning,
+  title={Learning Deep Global Multi-scale and Local Attention Features for Facial Expression Recognition in the Wild},
+  author={Zhao, Zengqun and Liu, Qingshan and Wang, Shanmin},
+  journal={IEEE Transactions on Image Processing},
+  volume={30},
+  pages={6544-6556},
+  year={2021},
+  publisher={IEEE}
+}
+```
 
 ## Note
 The samples' number of CAER-S dataset employed in our work should be: all (69,982 samples), training set (48,995 samples), and test set (20,987 samples). We apologize for the typos in our paper.
