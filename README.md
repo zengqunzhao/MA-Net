@@ -1,7 +1,7 @@
 # MA-Net
 
 *Zengqun Zhao, Qingshan Liu, Shanmin Wang. "[Learning Deep Global Multi-scale and Local Attention Features 
-for Facial Expression Recognition in the Wild](https://doi.org/10.1109/TIP.2021.3093397)". IEEE Transactions on Image Processing.*
+for Facial Expression Recognition in the Wild](https://drive.google.com/file/d/1YvnRWzUJSO2xmI-eBFy-nc8KKOINbjxT/view?usp=sharing)". IEEE Transactions on Image Processing.*
 
 ## Requirements
 - Python >= 3.6
