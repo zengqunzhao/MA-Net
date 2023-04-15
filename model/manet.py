@@ -94,7 +94,7 @@ class MulScaleBlock(nn.Module):
         out_1_4 = self.bn1_2_4(self.conv1_2_4(self.relu(out_1_3) + sp_x[3]))
         out_1 = torch.cat([out_1_1, out_1_2, out_1_3, out_1_4], dim=1)
 
-        out_2_4 = self.bn2_2_1(self.conv2_2_4(sp_x[3]))
+        out_2_4 = self.bn2_2_4(self.conv2_2_4(sp_x[3]))
         out_2_3 = self.bn2_2_3(self.conv2_2_3(self.relu(out_2_4) + sp_x[2]))
         out_2_2 = self.bn2_2_2(self.conv2_2_2(self.relu(out_2_3) + sp_x[1]))
         out_2_1 = self.bn2_2_1(self.conv2_2_1(self.relu(out_2_2) + sp_x[0]))
