@@ -88,34 +88,19 @@ class MulScaleBlock(nn.Module):
 
         sp_x = torch.split(out, self.scale_width, 1)
 
-        ##########################################################
-        out_1_1 = self.conv1_2_1(sp_x[0])
-        out_1_1 = self.bn1_2_1(out_1_1)
-        out_1_1_relu = self.relu(out_1_1)
-        out_1_2 = self.conv1_2_2(out_1_1_relu + sp_x[1])
-        out_1_2 = self.bn1_2_2(out_1_2)
-        out_1_2_relu = self.relu(out_1_2)
-        out_1_3 = self.conv1_2_3(out_1_2_relu + sp_x[2])
-        out_1_3 = self.bn1_2_3(out_1_3)
-        out_1_3_relu = self.relu(out_1_3)
-        out_1_4 = self.conv1_2_4(out_1_3_relu + sp_x[3])
-        out_1_4 = self.bn1_2_4(out_1_4)
-        output_1 = torch.cat([out_1_1, out_1_2, out_1_3, out_1_4], dim=1)
+        out_1_1 = self.bn1_2_1(self.conv1_2_1(sp_x[0]))
+        out_1_2 = self.bn1_2_2(self.conv1_2_2(self.relu(out_1_1) + sp_x[1]))
+        out_1_3 = self.bn1_2_3(self.conv1_2_3(self.relu(out_1_2) + sp_x[2]))
+        out_1_4 = self.bn1_2_4(self.conv1_2_4(self.relu(out_1_3) + sp_x[3]))
+        out_1 = torch.cat([out_1_1, out_1_2, out_1_3, out_1_4], dim=1)
 
-        out_2_1 = self.conv2_2_1(sp_x[0])
-        out_2_1 = self.bn2_2_1(out_2_1)
-        out_2_1_relu = self.relu(out_2_1)
-        out_2_2 = self.conv2_2_2(out_2_1_relu + sp_x[1])
-        out_2_2 = self.bn2_2_2(out_2_2)
-        out_2_2_relu = self.relu(out_2_2)
-        out_2_3 = self.conv2_2_3(out_2_2_relu + sp_x[2])
-        out_2_3 = self.bn2_2_3(out_2_3)
-        out_2_3_relu = self.relu(out_2_3)
-        out_2_4 = self.conv2_2_4(out_2_3_relu + sp_x[3])
-        out_2_4 = self.bn2_2_4(out_2_4)
-        output_2 = torch.cat([out_2_1, out_2_2, out_2_3, out_2_4], dim=1)
+        out_2_4 = self.bn2_2_1(self.conv2_2_4(sp_x[3]))
+        out_2_3 = self.bn2_2_3(self.conv2_2_3(self.relu(out_2_4) + sp_x[2]))
+        out_2_2 = self.bn2_2_2(self.conv2_2_2(self.relu(out_2_3) + sp_x[1]))
+        out_2_1 = self.bn2_2_1(self.conv2_2_1(self.relu(out_2_2) + sp_x[0]))
+        out_2 = torch.cat([out_2_1, out_2_2, out_2_3, out_2_4], dim=1)
 
-        out = output_1 + output_2
+        out = out_1 + out_2
 
         if self.downsample is not None:
             identity = self.downsample(x)
